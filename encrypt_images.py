@@ -4,11 +4,9 @@ import scipy as sp
 import matplotlib.pyplot as plt
 import imageio
 
-
 image1 = Image.open("original_images/lena_color.bmp")
 image2 = Image.open("original_images/lena.bmp")
 image3 = Image.open("original_images/temp_.bmp")
-
 
 # Read the S-box values from the file
 sbox_array = []
@@ -50,7 +48,6 @@ for i in range(len(data11)):
     data11[i] = sbox_array[(data11[i] ^ key[i % len(key)])]
 
 encrypted_image11 = Image.frombytes(encrypted_image1.mode, encrypted_image1.size, bytes(data11))
-
 
 # Save the encrypted images
 #encrypted_image1.save("encrypted_images/encrypted_lena.bmp")
